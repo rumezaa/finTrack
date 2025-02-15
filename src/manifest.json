@@ -1,0 +1,10 @@
+{
+    "name": "CashCorn",
+    "version": "1.0.0",
+    "description": "stop spending yo money",
+    "manifest_version": 3,
+    "author": "",
+    "action":{
+        "default_popup": "index.html"
+    }
+}
