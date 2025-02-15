@@ -6,5 +6,15 @@
     "author": "",
     "action":{
         "default_popup": "index.html"
+    },
+    "permissions": [
+        "scripting"
+    ],
+    "host-permissions": [
+        "https://*/*",
+        "https://*/*"
+    ],
+    "icons": {
+        "32": "CashCorn.png"
     }
 }
