@@ -1,20 +1,22 @@
 import { useState } from 'react'
 import './App.css'
+import AuthPage from './components/AuthPage'
+import DashboardPage from './components/DashboardPage'
+import FormPage from './components/FormPage'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-
+  const [page, setPage] = useState<string>("auth")
 
   return (
     <>
-      <div className='bg-purple-300'>
-        <div onClick={() => setCount(count + 1)}>
-          {count}
-        </div>
-
-      </div>
-       
+    <ul>
+      <li onClick={() => setPage("auth")}>Auth</li>
+      <li onClick={() => setPage("form")}>Form</li>
+      <li onClick={() => setPage("dashboard")}>Dashboard</li>
+    </ul>
+      {page == "auth" && <AuthPage/>}
+      {page == "form" && <FormPage/>}
+      {page == "dashboard" && <DashboardPage/>}
     </>
   )
 }
