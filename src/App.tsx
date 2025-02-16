@@ -9,7 +9,7 @@ function App() {
 
   return (
     <UserProvider>
-      <div className="w-[25rem] h-[30rem] flex flex-col gap-2 border border-red-500">
+      <div className="w-[25rem] h-[30rem] flex flex-col gap-2">
         <Header />
         <Pages />
       </div>
