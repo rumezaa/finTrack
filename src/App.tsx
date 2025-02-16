@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <div className="w-[25rem] h-[40rem] flex flex-col gap-2 border-2 border-red-500">
+      <div className="w-[25rem] h-[37.5rem] flex flex-col gap-2">
         <Header />
         <div className="px-6">
           <ul className="flex gap-2 text-xs">
