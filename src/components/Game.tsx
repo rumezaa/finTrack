@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import Ball from "./Ball";
 import Platform from "./Platform";
@@ -22,6 +23,7 @@ const Game: React.FC = () => {
     return () => clearInterval(interval);
   }, [isGameOver]);
 
+  console.log(catchCount)
   // When ball is caught by platform, reset it to the top and randomize X position
   const handleCatch = () => {
     setPosition(0); // Reset ball to the top
