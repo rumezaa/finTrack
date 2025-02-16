@@ -1,31 +1,20 @@
 {
     "name": "CashCorn",
     "version": "1.0.0",
-    "description": "Stop spending yo money",
+    "description": "stop spending yo money",
     "manifest_version": 3,
     "author": "",
-    "action": {
+    "action":{
         "default_popup": "index.html"
     },
     "permissions": [
-        "scripting",
-        "storage" 
+        "scripting"
     ],
-    "host_permissions": [
+    "host-permissions": [
+        "https://*/*",
         "https://*/*"
     ],
     "icons": {
         "32": "CashCorn.png"
-    },
-    "background": {
-        "service_worker": "background.js",
-        "type": "module"
-    },
-    "content_scripts": [
-        {
-            "matches": ["https://*/*"],
-            "js": ["content.js"],
-            "run_at": "document_idle"
-        }
-    ]
+    }
 }
