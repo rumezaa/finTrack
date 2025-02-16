@@ -1,6 +1,5 @@
 import Input from "./ui/Input";
 import Label from "./ui/Label";
-import SelectBox from "./ui/SelectBox";
 import { FormData } from "../types";
 import Button from "./ui/Button";
 
@@ -30,27 +29,33 @@ export default function Form1({ setStep, formData }: Form1Props) {
       <div className="flex flex-col gap-2">
         <Label>YOUR GENDER IDENTITY</Label>
         <div className="flex justify-center gap-2">
-          <SelectBox
-            value="male"
-            selected={formData.gender}
-            setSelected={formData.setGender}
+          <button
+            type="button"
+            onClick={() => formData.setGender("male")}
+            className={`text-xs font-semibold uppercase px-4 py-1 rounded-md cursor-pointer border-2 ${
+              formData.gender == "male" ? "border-[#f75a11]" : "border-gray-300"
+            }`}
           >
             Male
-          </SelectBox>
-          <SelectBox
-            value="void"
-            selected={formData.gender}
-            setSelected={formData.setGender}
+          </button>
+          <button
+            type="button"
+            onClick={() => formData.setGender("void")}
+            className={`text-xs font-semibold uppercase px-4 py-1 rounded-md cursor-pointer border-2 ${
+              formData.gender == "void" ? "border-[#f75a11]" : "border-gray-300"
+            }`}
           >
             Prefer not to say
-          </SelectBox>
-          <SelectBox
-            value="female"
-            selected={formData.gender}
-            setSelected={formData.setGender}
+          </button>
+          <button
+            type="button"
+            onClick={() => formData.setGender("female")}
+            className={`text-xs font-semibold uppercase px-4 py-1 rounded-md cursor-pointer border-2 ${
+              formData.gender == "female" ? "border-[#f75a11]" : "border-gray-300"
+            }`}
           >
             Female
-          </SelectBox>
+          </button>
         </div>
       </div>
       <div className="flex flex-col gap-2">

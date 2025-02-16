@@ -52,13 +52,17 @@ export const signInWithGoogle = async (setError) => {
                 full_name: user.displayName,
                 email: user.email,
                 signInFirstTime: true,
-                rankings: [],
                 age: "",
-                debtLev: "",
-                annInc: "",
-                avgMonthSpend: "",
-                genderIdentity: "",
-                purchaseFreq: "",
+                gender: "",
+                debtComfortLevel: "",
+                annualIncome: "",
+                avgMonthlySavings: "",
+                purchaseFrequency: "",
+                foodSpend: "",
+                clothingSpend: "",
+                electronicsSpend: "",
+                subscriptionsSpend: "",
+                otherSpend: "",
             };
             try {
                 await addUser(data);

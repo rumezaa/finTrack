@@ -1,6 +1,7 @@
 // vite.config.ts
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import commonjs from '@rollup/plugin-commonjs';
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath } from 'node:url'
 import { dirname, resolve } from 'node:path'
@@ -9,7 +10,10 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss(), commonjs()],
+  optimizeDeps: {
+    include: ['@mswjs/interceptors']
+  },
   build: {
     outDir: 'dist',
     emptyOutDir: true,
