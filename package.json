@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "build-extension-m": "npm run build && cp src/manifest.json dist/ && cp src/Content.js dist/ && cp src/Background.js dist/",
-    "build-extension-w": "npm run build && copy src\\manifest.json dist\\ && copy src\\Content.js dist\\ && copy src\\Background.js dist\\",
+    "build-extension-m": "npm run build && cp src/manifest.json dist/ && cp src/content.js dist/ && cp src/background.js dist/",
+    "build-extension-w": "npm run build && copy src\\manifest.json dist\\ && copy src\\content.js dist\\ && copy src\\background.js dist\\",
     "build-extension": "vite build && copy src\\manifest.json dist\\ && cd dist",
     "preview": "vite preview"
   },

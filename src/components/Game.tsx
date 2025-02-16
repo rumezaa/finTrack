@@ -12,6 +12,9 @@ const Game: React.FC = () => {
   const [score, setScore] = useState<number>(0); // Track the score
   const [squirrelSize, setSquirrelSize] = useState<number>(1); // Track squirrel size (1 means original size)
 
+  console.log(catchCount)
+
+
   useEffect(() => {
     if (isGameOver) return;
 
