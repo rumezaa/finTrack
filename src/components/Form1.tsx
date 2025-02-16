@@ -8,17 +8,11 @@ interface Form1Props {
 }
 
 export default function Form1({ setStep }: Form1Props) {
-  const [age, setAge] = useState<number | string | null>(null);
-  const [gender, setGender] = useState<string | null>(null);
-  const [debtComfortLevel, setDebtComfortLevel] = useState<
-    number | string | null
-  >(5);
-  const [annualIncome, setAnnualIncome] = useState<number | string | null>(
-    null
-  );
-  const [avgMonthlySavings, setAvgMonthlySavings] = useState<
-    number | string | null
-  >(null);
+  const [age, setAge] = useState<string | number | readonly string[] | undefined>();
+  const [gender, setGender] = useState<string | number | readonly string[] | undefined>();
+  const [debtComfortLevel, setDebtComfortLevel] = useState<string | number | readonly string[] | undefined>("2");
+  const [annualIncome, setAnnualIncome] = useState<string | number | readonly string[] | undefined>();
+  const [avgMonthlySavings, setAvgMonthlySavings] = useState<string | number | readonly string[] | undefined>();
 
   return (
     <form

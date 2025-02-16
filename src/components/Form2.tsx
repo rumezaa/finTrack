@@ -9,7 +9,7 @@ export default function Form2() {
         <input type="range" min="1" max="10" />
       </div>
       <div className="flex flex-col gap-2">
-        <Label>ANNUAL INCOME</Label>
+        <Label>RANK THE CATEGORIES</Label>
         <Input />
       </div>
       <div className="flex flex-col gap-2">

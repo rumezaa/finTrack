@@ -1,37 +1,71 @@
 import { auth, db } from "./config";
 import {
   getAuth,
-  signInWithPopup,
   GoogleAuthProvider,
+  signInWithCredential
 } from "firebase/auth";
-
 import { collection, getDoc, doc, updateDoc, setDoc } from "firebase/firestore";
 
-async function addUser(data: any) {
+// Types
+interface UserData {
+  full_name: string | null;
+  email: string | null;
+  signInFirstTime: boolean;
+  rankings: any[];
+  age: string;
+  debtLev: string;
+  annInc: string;
+  avgMonthSpend: string;
+  genderIdentity: string;
+  purchaseFreq: string;
+  id?: string;
+}
+
+async function addUser(data: UserData) {
   const usersCollection = collection(db, "users");
 
   try {
-    const userRef = doc(usersCollection, auth.currentUser?.uid);
+    if (!auth.currentUser?.uid) {
+      throw new Error("No authenticated user found");
+    }
+
+    const userRef = doc(usersCollection, auth.currentUser.uid);
     await setDoc(userRef, data);
     await updateDoc(userRef, { id: userRef.id });
     console.log("Document successfully written!");
+    return userRef;
   } catch (e) {
     console.error("Error writing document: ", e);
+    throw e;
   }
 }
 
-// Function to verify email and password input
-
-
-
 export const signInWithGoogle = async (setError: (error: string) => void) => {
-  const provider = new GoogleAuthProvider();
-  const auth = getAuth();
-
   try {
-    const result = await signInWithPopup(auth, provider);
+    // Get OAuth token from Chrome
+    const token = await new Promise<string>((resolve, reject) => {
+      chrome.identity.getAuthToken({ interactive: true }, (token) => {
+        if (chrome.runtime.lastError) {
+          reject(new Error(chrome.runtime.lastError.message));
+        } else if (!token) {
+          reject(new Error("No token received"));
+        } else {
+          resolve(token);
+        }
+      });
+    });
+
+    // Create credential with the token
+    const auth = getAuth();
+    const credential = GoogleAuthProvider.credential(null, token);
+    
+    // Sign in to Firebase with the credential
+    const result = await signInWithCredential(auth, credential);
     const user = result.user;
 
+    if (!user.email) {
+      throw new Error('No email provided from Google authentication');
+    }
 
     // Check if user exists in Firestore
     const userDocRef = doc(db, "users", user.uid);
@@ -39,28 +73,38 @@ export const signInWithGoogle = async (setError: (error: string) => void) => {
 
     if (!userDocSnap.exists()) {
       // If user doesn't exist, create a new user document
-      const data = {
-       full_name: user.displayName, // Assuming displayName is in "First Last" format
-       email: user.email,
-       signInFirstTime: true,
-       rankings: [],
-       age: "",
-       debtLev: "",
-       annInc: "",
-       avgMonthSpend: "",
-       genderIdentity: "",
-       purchaseFreq: "",
+      const data: UserData = {
+        full_name: user.displayName,
+        email: user.email,
+        signInFirstTime: true,
+        rankings: [],
+        age: "",
+        debtLev: "",
+        annInc: "",
+        avgMonthSpend: "",
+        genderIdentity: "",
+        purchaseFreq: "",
       };
 
-      addUser(data);
-      console.log("New user document created in Firestore:", data);
+      try {
+        await addUser(data);
+        console.log("New user document created in Firestore:", data);
+      } catch (error) {
+        console.error("Error creating new user:", error);
+        throw error;
+      }
     }
+
+    return user;
   } catch (error: any) {
-    const errorMessage = error.message;
+    const errorMessage = error?.message || 'An unknown error occurred';
+    console.error('Sign-in error:', error);
     setError(errorMessage);
+    
     setTimeout(() => {
-      setError(""); // Reset after 5 seconds
+      setError("");
     }, 3000);
+
+    throw error;
   }
 };
-

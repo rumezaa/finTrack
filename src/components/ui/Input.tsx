@@ -3,7 +3,7 @@ interface InputProps {
   placeholder?: string;
   className?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  value?: string | number | null;
+  value?: string | number | readonly string[] | undefined;
 }
 
 export default function Input({
