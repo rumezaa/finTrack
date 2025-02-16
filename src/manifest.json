@@ -5,11 +5,12 @@
     "manifest_version": 3,
     "author": "",
     "action": {
-        "default_popup": "index.html"
+        "default_popup": "../index.html"
     },
     "permissions": [
         "scripting",
-        "storage" 
+        "storage",
+        "activeTab" 
     ],
     "host_permissions": [
         "https://*/*"
@@ -17,15 +18,16 @@
     "icons": {
         "32": "CashCorn.png"
     },
-    "background": {
-        "service_worker": "background.js",
-        "type": "module"
-    },
     "content_scripts": [
-        {
-            "matches": ["https://*/*"],
-            "js": ["content.js"],
-            "run_at": "document_idle"
-        }
-    ]
+    {
+      "matches": ["<all_urls>"],
+      "js": ["assets/content.js"],
+      "run_at": "document_idle",
+      "type": "module"
+    }
+  ],
+  "background": {
+    "service_worker": "assets/background.js",
+    "type": "module"
+  }
 }

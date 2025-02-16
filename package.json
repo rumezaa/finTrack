@@ -9,10 +9,12 @@
     "lint": "eslint .",
     "build-extension-m": "npm run build && cp src/manifest.json dist/ && cp src/Content.js dist/ && cp src/Background.js dist/",
     "build-extension-w": "npm run build && copy src\\manifest.json dist\\ && copy src\\Content.js dist\\ && copy src\\Background.js dist\\",
+    "build-extension": "vite build && copy src\\manifest.json dist\\ && cd dist",
     "preview": "vite preview"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
+    "lucide-react": "^0.475.0",
     "postcss": "^8.5.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
