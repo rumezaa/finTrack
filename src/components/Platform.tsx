@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-interface PlatformProps {
+type PlatformProps = {
   setPlatformX: (x: number) => void;
   platformSpeed: number;
   squirrelSize: number; // New prop to track squirrel size
 }
 
-const Platform: React.FC<PlatformProps> = ({ setPlatformX, platformSpeed, squirrelSize }) => {
+const Platform: React.FC<PlatformProps> = (props: PlatformProps) => {
+    const { setPlatformX, platformSpeed, squirrelSize } = props;
+
   const squirrelWidth = 150 * squirrelSize; // Adjust width based on squirrel size
   const [platformPosX, setPlatformPosX] = useState<number>(window.innerWidth / 2 - squirrelWidth / 2); // Center squirrel on screen
 

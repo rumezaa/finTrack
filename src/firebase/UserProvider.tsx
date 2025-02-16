@@ -6,7 +6,7 @@ import { createContext, useState, useEffect, ReactNode } from "react";
 type User = {
   full_name: string; // Assuming displayName is in "First Last" format
   email: string;
-  signInFirstTime: string;
+  signInFirstTime: boolean;
   rankings: any;
   age: string;
   debtLev: string;
