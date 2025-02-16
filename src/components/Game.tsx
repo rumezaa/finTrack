@@ -24,6 +24,7 @@ const Game: React.FC = () => {
 
   // When ball is caught by platform, reset it to the top and randomize X position
   const handleCatch = () => {
+    console.log(catchCount)
     setPosition(0); // Reset ball to the top
     setXPosition(Math.random() * (window.innerWidth - 50)); // Randomize X position
     setCatchCount((prevCount) => {
