@@ -31,8 +31,9 @@ const Game: React.FC = () => {
   }, [isGameStarted, isGameOver, acornSpeed]);
 
   const handleCatch = () => {
-    setPosition(0);
-    setXPosition(Math.random() * (window.innerWidth - 50));
+    console.log(catchCount)
+    setPosition(0); // Reset ball to the top
+    setXPosition(Math.random() * (window.innerWidth - 50)); // Randomize X position
     setCatchCount((prevCount) => {
       const newCount = prevCount + 1;
       if (newCount === 2) {

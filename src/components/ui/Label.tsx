@@ -1,10 +1,13 @@
 import React from "react";
 
 interface LabelProps {
-    children: React.ReactNode
+  children: React.ReactNode;
 }
 
-export default function Label({children}: LabelProps) {
-    return <label className="text-sm font-semibold uppercase">{children}</label>
-
+export default function Label({ children }: LabelProps) {
+  return (
+    <label className="text-xs font-semibold uppercase text-nowrap">
+      {children}
+    </label>
+  );
 }
