@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -14,33 +13,15 @@
 
 a {
   font-weight: 500;
-  color: #F75A11;
+  color: #f75a11;
   text-decoration: inherit;
 }
 a:hover {
-  color: #F75A11;
+  color: #f75a11;
 }
 
 h1 {
   font-size: 1.5rem;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 0.5rem;
-  border: 2px solid #F75A11;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
   font-weight: 500;
-  cursor: pointer;
-  text-transform: uppercase;
-  background-color: #F75A11;
-  color: white;
-}
-button:hover {
-  background-color: #d54e0f;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  line-height: 1.1;
 }

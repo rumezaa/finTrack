@@ -1,3 +1,4 @@
+
 chrome.runtime.onInstalled.addListener(() => {
     console.log("CashCorn Extension Installed");
   });

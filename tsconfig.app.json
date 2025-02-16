@@ -6,9 +6,11 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
@@ -20,7 +22,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* Path Aliases */
+    "paths": {
+      "firebase/auth": ["./node_modules/firebase/auth/dist/index.esm.js"],
+      "firebase/app": ["./node_modules/firebase/app/dist/index.esm.js"],
+      "firebase/firestore": ["./node_modules/firebase/firestore/dist/index.esm.js"]
+    }
   },
   "include": ["src"]
 }

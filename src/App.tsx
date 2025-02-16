@@ -1,29 +1,20 @@
-import { useState } from 'react'
-import './App.css'
-import AuthPage from './components/AuthPage'
-import DashboardPage from './components/DashboardPage'
-import FormPage from './components/FormPage'
-import Header from './components/Header'
-import Game from './components/Game'
+
+import "./App.css";
+import Header from "./components/Header";
+import { UserProvider } from "./firebase/UserProvider";
+import Pages from "./Pages";
 
 function App() {
-  const [page, setPage] = useState<string>("auth")
+  
 
   return (
-    <>
-    <ul>
-      <li onClick={() => setPage("auth")}>Auth</li>
-      <li onClick={() => setPage("form")}>Form</li>
-      <li onClick={() => setPage("dashboard")}>Dashboard</li>
-      <li onClick={() => setPage("game")}> Game</li>
-    </ul>
-      {page == "auth" && <AuthPage/>}
-      {page == "form" && <FormPage/>}
-      {page == "dashboard" && <DashboardPage/>}
-      {page == "game" && <Game/>}
-
-    </>
-  )
+    <UserProvider>
+      <div className="w-[25rem] h-[30rem] flex flex-col gap-2 border border-red-500">
+        <Header />
+        <Pages />
+      </div>
+    </UserProvider>
+  );
 }
 
-export default App
+export default App;
