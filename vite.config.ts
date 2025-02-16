@@ -9,8 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         popup: "main.html",   // React UI popup
-        content: "src/content.ts", // Content script (NO .tsx)
-        isolated: "src/insolated.tsx"
+        content: "src/content.ts" // Content script (NO .tsx)
       },
       output: {
         format: "iife"
