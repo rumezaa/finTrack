@@ -1,20 +1,35 @@
 {
-    "name": "CashCorn",
-    "version": "1.0.0",
-    "description": "stop spending yo money",
-    "manifest_version": 3,
-    "author": "",
-    "action":{
-        "default_popup": "index.html"
-    },
-    "permissions": [
-        "scripting"
-    ],
-    "host-permissions": [
-        "https://*/*",
-        "https://*/*"
-    ],
-    "icons": {
-        "32": "CashCorn.png"
+  "name": "CashCorn",
+  "version": "1.0.0",
+  "description": "Stop spending yo money",
+  "manifest_version": 3,
+  "author": "",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["scripting", "tabs", "storage", "identity"],
+  "host_permissions": ["https://*/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
     }
+  ],
+
+  "oauth2": {
+    "client_id": "190921572065-bcakcpqsn1o4jvdvvhqqb0ccja1kntkc.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  },
+
+  "icons": {
+    "32": "CashCorn.png"
+  }
 }
