@@ -1,18 +1,27 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import AuthPage from './components/AuthPage'
+import DashboardPage from './components/DashboardPage'
+import FormPage from './components/FormPage'
+import Header from './components/Header'
+import Game from './components/Game'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [page, setPage] = useState<string>("auth")
 
   return (
     <>
-      <div className='bg-white'>
-        Hi
+    <ul>
+      <li onClick={() => setPage("auth")}>Auth</li>
+      <li onClick={() => setPage("form")}>Form</li>
+      <li onClick={() => setPage("dashboard")}>Dashboard</li>
+      <li onClick={() => setPage("game")}> Game</li>
+    </ul>
+      {page == "auth" && <AuthPage/>}
+      {page == "form" && <FormPage/>}
+      {page == "dashboard" && <DashboardPage/>}
+      {page == "game" && <Game/>}
 
-      </div>
-       
     </>
   )
 }
