@@ -2,7 +2,7 @@ import { InputValue } from "../../types";
 interface SelectBoxProps {
   children: React.ReactNode;
   value: InputValue;
-  selected: string;
+  selected: InputValue;
   setSelected: (value: InputValue) => void;
 }
 
