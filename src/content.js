@@ -11,7 +11,7 @@ const detectBuyButton = () => {
     ];
 
     for (const type of buttonTypes) {
-        const button = document.querySelector(type) as HTMLButtonElement | null;
+        const button = document.querySelector(type);
         if (button) {
             console.log("buy button detected", button);
             button.addEventListener("click", showBlockingOverlay);
@@ -20,7 +20,7 @@ const detectBuyButton = () => {
     }
 };
 
-const showBlockingOverlay = (event: Event) => {
+const showBlockingOverlay = () => {
     event.preventDefault(); // Stop immediate purchase
   
     const overlay = document.createElement("div");
@@ -52,7 +52,7 @@ const showBlockingOverlay = (event: Event) => {
     confirmButton.addEventListener("click", () => {
       overlay.remove();
       document.body.style.overflow = "auto";
-      (event.target as HTMLButtonElement).click(); // Trigger original button
+      (event.target).click(); // Trigger original button
     });
   
     injectTailwindAnimations();
