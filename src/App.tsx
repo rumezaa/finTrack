@@ -3,6 +3,7 @@ import './App.css'
 import AuthPage from './components/AuthPage'
 import DashboardPage from './components/DashboardPage'
 import FormPage from './components/FormPage'
+import Header from './components/Header'
 import Game from './components/Game'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       {page == "form" && <FormPage/>}
       {page == "dashboard" && <DashboardPage/>}
       {page == "game" && <Game/>}
+
     </>
   )
 }

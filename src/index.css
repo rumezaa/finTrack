@@ -21,46 +21,26 @@ a:hover {
   color: #F75A11;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
 h1 {
-  font-size: 3.2em;
+  font-size: 1.5rem;
   line-height: 1.1;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid rgb(219, 219, 219);
+  border-radius: 0.5rem;
+  border: 2px solid #F75A11;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
   cursor: pointer;
-  transition: border-color 0.25s;
+  text-transform: uppercase;
+  background-color: #F75A11;
+  color: white;
 }
 button:hover {
-  border-color: #F75A11;
+  background-color: #d54e0f;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
