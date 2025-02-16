@@ -10,18 +10,18 @@ function App() {
 
   return (
     <>
-      <div className='w-[25rem] h-[30rem] flex flex-col gap-2 border border-red-500'>
-      <Header />
-      <div className='px-6'>
-      <ul className='flex gap-2 text-xs'>
-        <li onClick={() => setPage("auth")}>Auth</li>
-        <li onClick={() => setPage("form")}>Form</li>
-        <li onClick={() => setPage("dashboard")}>Dashboard</li>
-      </ul>
-        {page == "auth" && <AuthPage/>}
-        {page == "form" && <FormPage/>}
-        {page == "dashboard" && <DashboardPage/>}
-      </div>
+      <div className='w-[25rem] h-[35rem] flex flex-col gap-2 border-2 border-red-500'>
+        <Header />
+        <div className='px-6'>
+        <ul className='flex gap-2 text-xs'>
+          <li onClick={() => setPage("auth")}>Auth</li>
+          <li onClick={() => setPage("form")}>Form</li>
+          <li onClick={() => setPage("dashboard")}>Dashboard</li>
+        </ul>
+          {page == "auth" && <AuthPage/>}
+          {page == "form" && <FormPage/>}
+          {page == "dashboard" && <DashboardPage/>}
+        </div>
       </div>
     </>
   )

@@ -1,4 +1,4 @@
-import CashCornLogo from "../../public/cashcorn-logo-full.png"
+import CashCornLogo from "/cashcorn-logo-full.png"
 
 export default function Header() {
     return (
