@@ -8,12 +8,18 @@
         "default_popup": "index.html"
     },
     "permissions": [
-        "scripting"
+        "scripting",
+        "tabs"
     ],
     "host-permissions": [
         "https://*/*",
         "https://*/*"
     ],
+    "background": {
+    "service_worker": "background.js"
+  },
+
+
     "icons": {
         "32": "CashCorn.png"
     }

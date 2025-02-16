@@ -9,7 +9,7 @@ export default function Header() {
           .then(() => {
             localStorage.clear(); // we need somethig less volatile
           })
-          .catch((error) => {
+          .catch((error: string) => {
             console.error("Error signing out:", error);
           });
       }

@@ -11,7 +11,7 @@ async function addUser(data: any) {
   const usersCollection = collection(db, "users");
 
   try {
-    const userRef = doc(usersCollection, auth.currentUser.uid);
+    const userRef = doc(usersCollection, auth.currentUser?.uid);
     await setDoc(userRef, data);
     await updateDoc(userRef, { id: userRef.id });
     console.log("Document successfully written!");

@@ -26,7 +26,7 @@ type UserProviderProps = {
 
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [initializing, setInitializing] = useState(true);
+  
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userAuth) => {
@@ -35,17 +35,17 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         const docUnsubscribe = onSnapshot(docRef, (docSnap) => {
           if (docSnap.exists()) {
             setUser(docSnap.data() as User);
-            setInitializing(false);
+      
           } else {
             console.log("No such document!");
-            setInitializing(false);
+ 
           }
         });
 
         return () => docUnsubscribe();
       } else {
         setUser(null);
-        setInitializing(false);
+
       }
     });
 
